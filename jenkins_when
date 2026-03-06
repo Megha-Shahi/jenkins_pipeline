@@ -1,0 +1,30 @@
+pipeline{
+    
+    agent any
+    branch 'main'
+    stages{
+
+        stage('Build'){
+
+            steps{
+                echo "Building the code"
+             }
+         }
+        stage('Test'){
+
+            steps{
+                echo "Testing the code"
+             }
+         }
+        stage('Deploy'){
+
+            when{
+                branch 'main'
+             }
+             steps{
+            steps{
+                echo "Deploying the code"
+            }
+        }
+    }
+}
