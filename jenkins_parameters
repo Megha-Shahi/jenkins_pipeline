@@ -1,0 +1,24 @@
+pipeline{
+    // parameters {
+    //     string(name: 'NAME', defaultValue: '', description: 'Name')
+    //     choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: 'Environment')
+    //     booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests?')
+    // }
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Hello ${params.NAME}"
+                echo "Environment is ${params.ENV}"
+            }
+        }
+        stage('Test') {
+            when {
+                expression { params.RUN_TESTS }
+            }
+            steps {
+                echo "Running tests..."
+            }
+        }
+    }
+}
