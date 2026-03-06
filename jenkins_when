@@ -2,6 +2,7 @@ pipeline{
     
     agent any
     branch 'main'
+    
     stages{
 
         stage('Build'){
@@ -21,10 +22,9 @@ pipeline{
             when{
                 branch 'main'
              }
-             steps{
+             
             steps{
                 echo "Deploying the code"
             }
-        }
     }
 }
